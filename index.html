@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELLUM BULITERS — Residential Architecture &amp; Interiors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- NAV -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="24" height="24">
+          <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="20" y1="4" x2="20" y2="36" stroke="currentColor" stroke-width="1.1"/>
+          <line x1="4" y1="20" x2="36" y2="20" stroke="currentColor" stroke-width="1.1"/>
+          <circle cx="20" cy="20" r="2.4" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="logo-text">VELLUM<em>BUILDERS</em></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#services" data-nav-link>Services</a>
+      <a href="#spaces" data-nav-link>Projects</a>
+      <a href="#plans" data-nav-link>Plans</a>
+      <a href="#process" data-nav-link>Process</a>
+      <a href="#contact" data-nav-link>Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="btn btn-ghost nav-cta" id="messageUsBtn" type="button">Message Us</button>
+      <a class="btn btn-solid nav-cta" href="https://wa.me/919489251601?text=Hi%20VELLUM%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Enquire</a>
+      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- MESSAGE US MODAL -->
+<div class="message-modal" id="messageModal" aria-hidden="true">
+  <div class="message-modal-overlay" id="messageModalOverlay"></div>
+  <div class="message-modal-panel" role="dialog" aria-modal="true" aria-labelledby="messageModalTitle">
+    <button class="message-modal-close" id="messageModalClose" type="button" aria-label="Close">&times;</button>
+    <p class="eyebrow mono">Quick Note</p>
+    <h3 id="messageModalTitle">Message Us</h3>
+    <p class="message-modal-sub">Leave your name, email and a line about the project — it opens straight in your mail app, ready to send.</p>
+    <form id="messageForm" class="message-form" novalidate>
+      <label>
+        <span>Name</span>
+        <input type="text" name="name" required placeholder="Your name" autocomplete="name" aria-describedby="nameError">
+        <span class="field-error" id="nameError"></span>
+      </label>
+      <label>
+        <span>Email</span>
+        <input type="email" name="email" required placeholder="you@gmail.com" autocomplete="email" aria-describedby="emailError">
+        <span class="field-error" id="emailError"></span>
+      </label>
+      <label>
+        <span>Message</span>
+        <textarea name="message" rows="4" required placeholder="Tell us about the site and the rooms you're imagining..." aria-describedby="messageError"></textarea>
+        <span class="field-error" id="messageError"></span>
+      </label>
+      <button type="submit" class="btn btn-primary" id="messageSubmitBtn">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-photo" aria-hidden="true">
+    <img src="hero-house.jpg" alt="">
+  </div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="eyebrow mono">Residential Architecture &amp; Interiors</p>
+    <h1 class="hero-title">Built<br>without<br><span class="ink">compromise.</span></h1>
+    <p class="hero-sub">Brutalist architecture. Refined living. VELLUM BUILDERS drafts homes that stand the test of time — from the car porch to the mini theatre room.</p>
+
+    <div class="hero-search">
+      <div class="hero-search-tabs" role="tablist">
+        <button class="active" data-hero-tab="residential" type="button">Residential</button>
+        <button data-hero-tab="interior" type="button">Interior</button>
+        <button data-hero-tab="renovation" type="button">Renovation</button>
+      </div>
+      <div class="hero-search-fields">
+        <div class="hero-search-field">
+          <label>Location</label>
+          <input type="text" placeholder="Enter city or area">
+        </div>
+        <div class="hero-search-field">
+          <label>Project Type</label>
+          <select>
+            <option>Select type</option>
+            <option>Residential</option>
+            <option>Interior</option>
+            <option>Renovation</option>
+          </select>
+        </div>
+        <div class="hero-search-field">
+          <label>Budget Range</label>
+          <select>
+            <option>₹50L – 1Cr</option>
+            <option>₹1Cr+</option>
+          </select>
+        </div>
+        <button class="hero-search-submit" id="heroSearchQuoteBtn" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          Get a Quote
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-trust">
+      <div class="hero-trust-item">
+        <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6z"/></svg></span>
+        <div><h5>Verified Craftsmanship</h5><p>Trusted &amp; certified builds</p></div>
+      </div>
+      <div class="hero-trust-item">
+        <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
+        <div><h5>Expert Architects</h5><p>Guidance at every step</p></div>
+      </div>
+      <div class="hero-trust-item">
+        <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        <div><h5>Site Support</h5><p>Weekly visits till handover</p></div>
+      </div>
+    </div>
+
+    <div class="hero-slide-counter" aria-hidden="true">
+      <span>01 / 06</span>
+      <span class="bar"></span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <p class="eyebrow mono">Our Services</p>
+  <div class="services-list">
+    <div class="service-item">
+      <span class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l9 4v10l-9 4-9-4V7z"/><path d="M3 7l9 4 9-4"/><path d="M12 11v10"/></svg></span>
+      <h3>Architecture</h3>
+      <p>Bespoke architectural design for modern living.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/></svg></span>
+      <h3>Construction</h3>
+      <p>Precision construction with uncompromising standards.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="12" width="18" height="7" rx="1"/><path d="M5 12V9a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v3"/><line x1="3" y1="19" x2="3" y2="21"/><line x1="21" y1="19" x2="21" y2="21"/></svg></span>
+      <h3>Interiors</h3>
+      <p>Raw, minimal, sophisticated interior spaces.</p>
+    </div>
+    <div class="service-item">
+      <span class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/></svg></span>
+      <h3>Project Management</h3>
+      <p>End-to-end management for a seamless building experience.</p>
+    </div>
+  </div>
+  <a href="#spaces" class="services-more mono">View All Services →</a>
+</section>
+
+<!-- INTRO STRIP / MANIFESTO -->
+<section class="intro-strip">
+  <div class="manifesto">
+    <div class="manifesto-media">
+      <img src="https://images.unsplash.com/photo-1758448511322-8bfc73daf606?auto=format&fit=crop&w=1200&q=70" alt="Minimal concrete living room with a single armchair" loading="lazy">
+    </div>
+    <div class="manifesto-body">
+      <p class="eyebrow mono">Our Manifesto</p>
+      <h2>Less form.<br>More purpose.</h2>
+      <p>We believe homes should be a reflection of strength, clarity and purpose. Our designs strip away the unnecessary, focusing on what truly matters: function, material and permanence.</p>
+      <p class="manifesto-signature">Vellum Studio</p>
+      <ol class="manifesto-points">
+        <li><span class="p-no mono">01</span><span>Purposeful Design</span></li>
+        <li><span class="p-no mono">02</span><span>Honest Materials</span></li>
+        <li><span class="p-no mono">03</span><span>Enduring Quality</span></li>
+        <li><span class="p-no mono">04</span><span>Timeless Living</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- SPACES -->
+<section class="spaces" id="spaces">
+  <div class="section-head">
+    <p class="eyebrow mono">Featured Work</p>
+    <h2>Inside the plan</h2>
+    <p class="section-sub">Twelve spaces, one house — filter by exterior or interior to explore the full gallery.</p>
+  </div>
+
+  <div class="filter-tabs" role="tablist">
+    <button class="tab active" data-filter="all" aria-selected="true">All Spaces</button>
+    <button class="tab" data-filter="exterior" aria-selected="false">Exterior</button>
+    <button class="tab" data-filter="interior" aria-selected="false">Interior</button>
+    <button class="tab" data-filter="materials" aria-selected="false">Home Materials</button>
+  </div>
+
+  <div class="gallery" id="gallery">
+
+    <article class="card" data-cat="exterior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1759369484704-fefd537878f1?auto=format&fit=crop&w=1200&q=70" alt="Covered car parking porch beside a modern house" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">EXT.01</span>
+        <h3>Car Porch &amp; Parking</h3>
+        <p>Covered parking for two cars in board-formed concrete, finished with brass house numerals at the kerb.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="exterior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1692339267725-ce644ac805ec?auto=format&fit=crop&w=1200&q=70" alt="Landscaped garden pathway leading toward the house" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">EXT.02</span>
+        <h3>Garden &amp; Landscape</h3>
+        <p>A stone path threading through layered planting — the first room of any house is the one outdoors.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1724765440530-e3954ac2e61d?auto=format&fit=crop&w=1200&q=70" alt="Entrance hall opening onto the living and dining spaces" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.01</span>
+        <h3>Entrance Hall</h3>
+        <p>The hinge of the plan — where the porch hands off to every room that follows.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1764526624453-db32c24eca55?auto=format&fit=crop&w=1200&q=70" alt="Modern kitchen with wooden cabinets and island" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.02</span>
+        <h3>Kitchen</h3>
+        <p>An island in smoked oak and quartz, built for cooking with company rather than alone.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1758448511322-8bfc73daf606?auto=format&fit=crop&w=1200&q=70" alt="Living room with sectional sofa and large window" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.03</span>
+        <h3>Living Room</h3>
+        <p>Low, deep seating gathered around a window wall, set back from the glare of the street.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1745794621090-d856c53b0cc2?auto=format&fit=crop&w=1200&q=70" alt="Dining room table and chairs beside the kitchen" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.04</span>
+        <h3>Dining Room</h3>
+        <p>A long table lit by a single line of pendant light, sized for everyday dinners and long ones.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1760072513376-67a46aab0fd1?auto=format&fit=crop&w=1200&q=70" alt="Bedroom with bed, desk and mirror" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.05</span>
+        <h3>Bedroom</h3>
+        <p>A quiet volume finished in warm plaster and walnut, kept deliberately free of clutter.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1724061409979-420a38c25bcc?auto=format&fit=crop&w=1200&q=70" alt="Home theatre room with recliner seating and screen" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.06</span>
+        <h3>Mini Theatre Room</h3>
+        <p>A windowless box built for sound — two rows of recliners, one screen, house lights that fade slow.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1762983870490-63e5ba07105b?auto=format&fit=crop&w=1200&q=70" alt="Home office with desk, chair and plants" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.07</span>
+        <h3>Home Office &amp; Study</h3>
+        <p>A desk set square to the window light, shelved in walnut, built for hours that run long.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="interior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1754788358645-d6e6cca12e25?auto=format&fit=crop&w=1200&q=70" alt="Modern bathroom with marble vanity and sink" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">INT.08</span>
+        <h3>Bathroom</h3>
+        <p>Marble counters and a vessel sink under warm light, kept spare enough to feel like a spa.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="exterior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1748446093753-87ab37e7a478?auto=format&fit=crop&w=1200&q=70" alt="Sunlit balcony with a rocking chair" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">EXT.03</span>
+        <h3>Balcony &amp; Terrace</h3>
+        <p>A private ledge off the upper floor, just deep enough for a chair and a slow morning.</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="exterior">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1635122212082-c4b6f108f36a?auto=format&fit=crop&w=1200&q=70" alt="Swimming pool in a landscaped backyard" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">EXT.04</span>
+        <h3>Swimming Pool</h3>
+        <p>A quiet lap pool framed by grass and trees, set back from the house for privacy.</p>
+      </div>
+    </article>
+
+    <article class="card card-wide" data-cat="materials">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=70" alt="Sample board of stone, wood and tile finishes" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">MAT.01</span>
+        <h3>Materials &amp; Finishes</h3>
+        <p>Board-formed concrete, smoked oak and honed stone — the palette every space is built from.</p>
+        <div class="card-subitems">
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1557778149-ff60d55dc145?auto=format&fit=crop&w=480&q=70" alt="Board-formed concrete house architecture" loading="lazy"></div>
+            <h4>Concrete &amp; Masonry</h4>
+            <p>Board-formed concrete and exposed brick, left raw for a solid, weathered honesty.</p>
+          </div>
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1768011850213-0eade0808bc5?auto=format&fit=crop&w=480&q=70" alt="Timber-clad house architecture" loading="lazy"></div>
+            <h4>Wood &amp; Timber</h4>
+            <p>Smoked oak and walnut for floors, cabinetry and joinery with a warm, natural grain.</p>
+          </div>
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1754522711595-84428937b07a?auto=format&fit=crop&w=480&q=70" alt="Marble and natural stone in a bathroom interior" loading="lazy"></div>
+            <h4>Stone &amp; Marble</h4>
+            <p>Honed marble and natural stone for counters, vanities and statement flooring.</p>
+          </div>
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1713966722165-74c8fd15c9b4?auto=format&fit=crop&w=480&q=70" alt="Patterned tile wall in an interior" loading="lazy"></div>
+            <h4>Tile &amp; Ceramics</h4>
+            <p>Handmade and glazed tile for kitchens, bathrooms and outdoor decks alike.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card-wide" data-cat="materials">
+      <div class="card-media">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=70" alt="Framed art and decorative styling in a living space" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="card-no mono">MAT.02</span>
+        <h3>Decoration</h3>
+        <p>Curated art, textiles and finishing touches that turn a finished shell into a finished home.</p>
+        <div class="card-subitems">
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1618219740975-d40978bb7378?auto=format&fit=crop&w=480&q=70" alt="Framed wall art in a living room" loading="lazy"></div>
+            <h4>Wall Art &amp; Murals</h4>
+            <p>Framed pieces and hand-painted murals selected to suit each room's scale and light.</p>
+          </div>
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1757416654883-c73c67b3382b?auto=format&fit=crop&w=480&q=70" alt="Textiles and soft furnishing in a living room" loading="lazy"></div>
+            <h4>Textiles &amp; Soft Furnishing</h4>
+            <p>Rugs, cushions and drapery in natural fibres that soften every hard surface.</p>
+          </div>
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1649605473379-c3e056c2634a?auto=format&fit=crop&w=480&q=70" alt="Pendant lighting in an interior space" loading="lazy"></div>
+            <h4>Lighting Accents</h4>
+            <p>Pendant, wall and accent lighting layered to shape mood across the day.</p>
+          </div>
+          <div class="subitem">
+            <div class="subitem-media"><img src="https://images.unsplash.com/photo-1522431266699-83e4a2a82b16?auto=format&fit=crop&w=480&q=70" alt="Styled vases and accessories in an interior" loading="lazy"></div>
+            <h4>Styling &amp; Accessories</h4>
+            <p>Vases, books and objects placed to finish a room once the furniture is in.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-results" id="galleryNoResults" hidden>No spaces match this filter yet — try another tab.</p>
+</section>
+
+<!-- PLANS -->
+<section class="plans" id="plans">
+  <div class="section-head">
+    <p class="eyebrow mono">Drawing Sets</p>
+    <h2>Plans</h2>
+    <p class="section-sub">The same plot, drawn two ways — flat and coloured, or lifted into space.</p>
+  </div>
+
+  <div class="filter-tabs plan-view-tabs" role="tablist" id="planViewTabs">
+    <button class="tab active" data-view="2d" type="button">2D Plans</button>
+    <button class="tab" data-view="3d" type="button">3D Plans</button>
+  </div>
+
+  <div class="plans-gallery" id="plansGallery">
+
+    <article class="plan-card" data-view="2d">
+      <div class="plan-media plan-media-2d has-photo">
+        <img class="plan-photo" src="plan-2d-floorplan.jpg" alt="2D architectural floor plan with labeled bedrooms, kitchen, dining and porch" loading="lazy">
+      </div>
+      <div class="plan-body">
+        <span class="plan-no mono">PLAN.01</span>
+        <h3>2D Colour Floor Plan</h3>
+        <p>Rooms tinted by function — living, kitchen, bedroom, bath — legible at a glance before a wall goes up.</p>
+      </div>
+    </article>
+
+    <article class="plan-card" data-view="3d" hidden>
+      <div class="plan-media plan-media-3d has-photo">
+        <img class="plan-photo" src="plan-3d-massing.png" alt="3D massing drawing of a modern two-storey residence with material legend and exploded axonometric" loading="lazy">
+      </div>
+      <div class="plan-body">
+        <span class="plan-no mono">PLAN.02</span>
+        <h3>3D Massing Drawing</h3>
+        <p>The plan lifted into volume — roofline, walls and porch read together as one solid form.</p>
+      </div>
+    </article>
+
+    <article class="plan-card" data-view="3d" hidden>
+      <div class="plan-media plan-media-3d has-photo">
+        <img class="plan-photo" src="plan-isometric-view.jpg" alt="Aerial view of an ultra-modern two-storey villa with pool and rooftop terrace" loading="lazy">
+      </div>
+      <div class="plan-body">
+        <span class="plan-no mono">PLAN.03</span>
+        <h3>Isometric View</h3>
+        <p>A 30° tilt across the whole plot — the clearest way to see how rooms stack and gardens wrap the house.</p>
+      </div>
+    </article>
+
+  </div>
+  <p class="no-results" id="plansNoResults" hidden>No plans in this view yet.</p>
+
+  <div class="section-head plans-types-head">
+    <p class="eyebrow mono">Drawing Types</p>
+    <h2>Every drawing we hand over</h2>
+    <p class="section-sub">Three stages, from the first layout to the sheet that goes to site.</p>
+  </div>
+
+  <div class="plan-types">
+
+    <article class="plan-type-card">
+      <div class="plan-type-media has-photo">
+        <img class="plan-photo" src="https://images.unsplash.com/photo-1721244654210-a505a99661e9?auto=format&fit=crop&w=900&q=70" alt="Single-storey house floor plan drawing" loading="lazy">
+      </div>
+      <span class="plan-no mono">TYPE.01</span>
+      <p>One footprint, every room placed — the first sketch that decides how the whole plot gets used.</p>
+    </article>
+
+    <article class="plan-type-card">
+      <div class="plan-type-media has-photo">
+        <img class="plan-photo" src="https://images.unsplash.com/photo-1721244653652-268631ec049a?auto=format&fit=crop&w=900&q=70" alt="Detailed architectural drawing with elevations and floor plan" loading="lazy">
+      </div>
+      <span class="plan-no mono">TYPE.02</span>
+      <p>Furniture, door swings and dimensions added — the plan you can actually picture living inside.</p>
+    </article>
+
+    <article class="plan-type-card">
+      <div class="plan-type-media has-photo">
+        <img class="plan-photo" src="https://images.unsplash.com/photo-1721244654392-9c912a6eb236?auto=format&fit=crop&w=900&q=70" alt="Working architectural blueprint of a building" loading="lazy">
+      </div>
+      <span class="plan-no mono">TYPE.03</span>
+      <p>Dimensioned, gridded and annotated for site — the sheet the mason and the electrician both build from.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-head light">
+    <p class="eyebrow mono">Our Build Process</p>
+    <h2>A clear path from vision to reality</h2>
+  </div>
+  <ol class="process-list">
+    <li><span class="p-no mono">01</span><div><h4>Site Visit &amp; Brief</h4><p>We walk the plot, measure it, and listen to how you actually want to live in it.</p></div></li>
+    <li><span class="p-no mono">02</span><div><h4>Concept Blueprint</h4><p>A first line drawing of the plan — porch, rooms, garden — for you to react to.</p></div></li>
+    <li><span class="p-no mono">03</span><div><h4>Material Palette</h4><p>Stone, timber, brass, plaster — chosen together, before anything is ordered.</p></div></li>
+    <li><span class="p-no mono">04</span><div><h4>Construction Drawings</h4><p>The blueprint becomes buildable — dimensioned, detailed, ready for site.</p></div></li>
+    <li><span class="p-no mono">05</span><div><h4>Site Execution</h4><p>Weekly site visits while it's built, so the drawing and the wall stay honest to each other.</p></div></li>
+    <li><span class="p-no mono">06</span><div><h4>Handover</h4><p>Keys, a walkthrough, and a maintenance note for the year ahead.</p></div></li>
+  </ol>
+</section>
+
+<!-- STATS -->
+<div class="hero-stats-bar">
+  <div class="hero-stats">
+    <div class="hero-stat"><strong data-count="180" data-suffix="+">0+</strong><span>Projects Completed</span></div>
+    <div class="hero-stat"><strong data-count="420" data-suffix="+">0+</strong><span>Happy Clients</span></div>
+    <div class="hero-stat"><strong data-count="12" data-suffix="+">0+</strong><span>Cities Covered</span></div>
+    <div class="hero-stat"><strong data-count="9" data-suffix="+">0+</strong><span>Years of Experience</span></div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-head">
+    <p class="eyebrow mono">What Our Clients Say</p>
+    <h2>Read the reviews</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+      <p>VELLUM BUILDERS turned our vision into something beyond what we imagined. The process was seamless and the result is extraordinary.</p>
+      <span class="testimonial-author">— James &amp; Olivia T.</span>
+    </div>
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+      <p>The attention to detail and quality of craftsmanship is second to none. We couldn't be happier with our new home.</p>
+      <span class="testimonial-author">— Michael R.</span>
+    </div>
+    <div class="testimonial-card">
+      <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+      <p>A team of true professionals who care about your vision and deliver buildings that last for generations.</p>
+      <span class="testimonial-author">— Sophie L.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-grid-bg"></div>
+  <div class="contact-split">
+    <div class="contact-inner">
+      <p class="eyebrow mono">Get In Touch</p>
+      <h2>Let's build something extraordinary.</h2>
+      <p class="contact-sub">Tell us about the site and the rooms you're imagining. We reply on WhatsApp or email, usually within a day.</p>
+
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="https://wa.me/919489251601?text=Hi%20VELLUM%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10.6 9 10 7.6 9.7 7c-.1-.4-.3-.3-.5-.3h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.4C8.3 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18c-1.7 0-3.3-.5-4.7-1.3l-.3-.2-3.2.9.9-3.1-.2-.3C3.5 14.4 3 12.7 3 12c0-4.9 4.1-9 9-9s9 4.1 9 9-4.1 9-9 9z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a class="btn btn-outline" href="https://mail.google.com/mail/?view=cm&fs=1&to=pban8263@gmail.com&su=Project%20Enquiry" target="_blank" rel="noopener">Send an Email</a>
+      </div>
+
+      <div class="contact-details mono">
+        <span>+91-9489251601</span>
+        <span>pban8263@gmail.com</span>
+      </div>
+    </div>
+    <div class="contact-media">
+      <img src="https://images.unsplash.com/photo-1724765440530-e3954ac2e61d?auto=format&fit=crop&w=1000&q=70" alt="Concrete hallway with warm accent lighting" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-simple">
+    <div class="logo-text footer-logo">VELLUM<em>BUILDERS</em></div>
+    <p class="footer-tagline">Residential Architecture &amp; Interiors</p>
+    <div class="footer-contact mono">
+      <span>+91-9489251601</span>
+      <span>pban8263@gmail.com</span>
+    </div>
+    <p class="copyright">© <span id="year"></span> Vellum Builders. Every space, drafted first.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
